@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login',
+      title: 'Sign Up',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -57,16 +58,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Log in to your account',
+                  'Create an account, It is free',
                   style: TextStyle(fontSize: 20),
                 )),
-            Container(
+                     Container(
               padding: const EdgeInsets.all(10),
+              // child: Text('User name'),
               child: TextField(
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Email',
+                   labelText: 'User name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              // child: Text('User name'),
+              child: TextField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                   labelText: 'Email',
                 ),
               ),
             ),
@@ -81,18 +94,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text('Forgot Password?',),
+                 Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirm Password',
+                ),
+              ),
             ),
-            SizedBox(  height: 30,),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text('Forgot Password',),
+            // ),
+            SizedBox(  height: 30,) ,
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Sign up'),
                   onPressed: () {
                     print(nameController.text);
                     print(passwordController.text);
@@ -100,12 +124,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
             SizedBox(  height: 30,),
+            
             Row(
               children: <Widget>[
-                const Text('Does not have account?'),
+                const Text('Already have an account?'),
                 TextButton(
                   child: const Text(
-                    'Sign up',
+                    'Login',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
